@@ -34,6 +34,12 @@ const TodoListApp: FC = () => {
     }
   };
 
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      addTask();
+    }
+  };
+
   const toggleTaskStatus = (taskId: number) => {
     setTasks((currentTasks) =>
       currentTasks.map((task) =>
@@ -69,6 +75,7 @@ const TodoListApp: FC = () => {
       <TaskInputField
         setIsTaskListOpen={setIsTaskListOpen}
         isTaskListOpen={isTaskListOpen}
+        handleKeyPress={handleKeyPress}
         newTask={newTask}
         setNewTask={setNewTask}
         addTask={addTask}

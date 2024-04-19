@@ -6,6 +6,7 @@ interface TaskInput {
   isTaskListOpen: Boolean;
   newTask: string;
   setNewTask: (text: string) => void;
+  handleKeyPress: (e: React.KeyboardEvent<HTMLInputElement>) => void;
   addTask: () => void;
 }
 
@@ -14,14 +15,9 @@ const TaskInputField: FC<TaskInput> = ({
   isTaskListOpen,
   newTask,
   setNewTask,
+  handleKeyPress,
   addTask,
 }) => {
-  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter") {
-      addTask();
-    }
-  };
-
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setNewTask(e.target.value);
   };
